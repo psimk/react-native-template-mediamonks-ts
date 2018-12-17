@@ -1,14 +1,14 @@
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { incrementCounterValue, decrementCounterValue } from '../../store/actions/counterActions';
+import { increment, decrement, CounterState } from '../../store/models/counter';
+import { RootState } from '../../store';
 import TestComponent from './TestComponent';
 
-const mapStateToProps = state => ({ counterValue: state.counter.counterValue });
-const mapDispatchToProps = { incrementCounterValue, decrementCounterValue };
+const mapStateToProps = ({ counterReducer }: RootState): CounterState => counterReducer;
+const mapDispatchToProps = {
+  increment,
+  decrement,
+};
 
-const connected = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+export type IProps = typeof mapDispatchToProps & CounterState;
 
-export default compose(connected)(TestComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(TestComponent);
