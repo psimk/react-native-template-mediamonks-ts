@@ -1,6 +1,6 @@
 {
   "name": "react-native-template-mediamonks-ts",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Clean start to any react-native project.",
   "keywords": [ "react-native", "jest", "redux", "detox", "template", "boilerplate" ],
   "author": "Paul Simkevicius",
